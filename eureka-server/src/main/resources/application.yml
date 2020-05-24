@@ -16,3 +16,6 @@ eureka:
     register-with-eureka: false
   instance:
     hostname: eureka-server1
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+    eviction-interval-timer-in-ms: 4000 #剔除服务间隔

@@ -8,7 +8,12 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://eureka-server1:8671/eureka/
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port} #向注册中心注册服务id
+
+# 修改Ribbon的负载均衡策略  服务名 - ribbon - NFLoadBalancerdRuleClassName : 策略
+odds-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
