@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: odds-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/win007?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: webgo
+    password: webgo123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    database: mysql
+    open-in-view: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #向注册中心注册服务id
